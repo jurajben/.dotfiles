@@ -21,7 +21,7 @@ font pango:MesloLGM Nerd Font 10
 
 # Picom execute
 exec --no-startup-id picom
-exec --no-startup-id feh --bg-scale ~/dotfiles/flatppuccin_4k_macchiato.png
+exec --no-startup-id feh --bg-scale ~/.config/i3/flatppuccin_4k_macchiato.png
 # exec --no-startup-id xrdb -merge ~/.Xresources
 
 # kill any hanging polybar processes
@@ -208,17 +208,8 @@ exec_always --no-startup-id setxkbmap -layout us,sk -variant qwerty
 exec_always --no-startup-id setxkbmap -option 'grp:alt_shift_toggle'
 
 # Setup xss-lock daemon
-exec_always --no-startup-id xset +dpms dpms 0 300 300 
-exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/dotfiles/lock.sh 
-
-bindsym $mod+x mode "lock"
-
-mode "lock" {
-    bindsym l exec i3lock --ignore-empty-password --tiling --image='/path/to/img.png' 2>/dev/null, mode "default"
-    # just force suspend. i3lock will be called automatically via lock.sh 
-    bindsym s exec --no-startup-id sleep 1 && xset dpms force suspend , mode "default"
-}
-
+exec_always --no-startup-id xset +dpms dpms 0 600 300 
+exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/lock.sh 
 
 set $rosewater "#f4dbd6"
 set $flamingo "#f0c6c6"
@@ -248,10 +239,10 @@ set $mantle "#1e2030"
 set $crust "#181926"
 
 #target                 title     bg    text      indicator    border
-client.focused           $mantle   $mauve $mantle  $rosewater $mauve
+client.focused           $mantle   $mauve $mantle  $mauve $mauve
 client.focused_inactive  $overlay0 $base  $text    $rosewater $overlay0
 client.unfocused         $overlay0 $base  $text    $rosewater $overlay0
-client.urgent            $peach    $base  $peach   $overlay0  $peach
+client.urgent            $peach    $base  $peach   $overlay0  $overlay0
 client.placeholder       $overlay0 $base  $text    $overlay0  $overlay0
 client.background        $base
 
@@ -259,7 +250,7 @@ client.background        $base
 gaps outer 5px
 gaps inner 5px
 
-default_border normal
+default_border pixel 5
 default_floating_border normal
 
 title_align center
