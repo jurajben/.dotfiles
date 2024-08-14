@@ -127,6 +127,6 @@ fi
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
 
-export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/opt/nvim-linux64/bin:/home/juraj/.local/bin"
 
 eval "$(starship init bash)"

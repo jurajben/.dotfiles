@@ -12,6 +12,8 @@ vim.api.nvim_set_keymap('n', '<C-q>', '<C-w><C-w>', {})
 vim.keymap.set('n', '<C-a>', ':vsplit<CR>')
 vim.keymap.set('n', '<C-s>', ':split<CR>')
 
+vim.opt.termguicolors = true
+
 -- Tabby keymaps
 vim.api.nvim_set_keymap("n", "<leader>tt", ":$tabnew<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
