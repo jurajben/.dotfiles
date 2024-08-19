@@ -5,9 +5,18 @@ vim.cmd("set shiftwidth=4")
 
 vim.opt.number = true
 vim.g.mapleader = " "
+vim.opt.clipboard:append("unnamedplus")
 
-vim.api.nvim_set_keymap('n', '<C-p>', '"+p', {})
 vim.api.nvim_set_keymap('n', '<C-q>', '<C-w><C-w>', {})
+
+-- Yank to system clipboard
+vim.api.nvim_set_keymap('n', '<Leader>y', '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<Leader>y', '"+y', { noremap = true, silent = true })
+
+-- Paste from system clipboard
+vim.api.nvim_set_keymap('n', '<Leader>p', '"+p', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<Leader>p', '"+p', { noremap = true, silent = true })
+
 
 vim.keymap.set('n', '<C-a>', ':vsplit<CR>')
 vim.keymap.set('n', '<C-s>', ':split<CR>')

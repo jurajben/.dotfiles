@@ -5,6 +5,7 @@ return {
 
 		null_ls.setup({
 			sources = {
+                -- Lua
 				null_ls.builtins.formatting.stylua,
 
 				-- Java
